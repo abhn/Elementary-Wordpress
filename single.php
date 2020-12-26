@@ -76,11 +76,11 @@ get_header();
 
 		</article>
 
-		<?php
-			endwhile; // End of the loop.
-			?>
+	<?php
+	endwhile; // End of the loop.
+	?>
 
-		</main><!-- #main -->
+</main><!-- #main -->
 
-		<?php
-		get_footer();
+<?php
+get_footer();
