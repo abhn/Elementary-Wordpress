@@ -20,3 +20,5 @@ deploy:
   skip_cleanup: true
   provider: script
   script: npm run deploy
+  on:
+    all_branches: true
