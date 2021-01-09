@@ -121,6 +121,7 @@ add_action( 'after_setup_theme', 'elementary_content_width', 0 );
  */
 function elementary_scripts() {
 	wp_enqueue_style( 'elementary-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_script( 'elementary-script', get_template_directory_uri() . '/build/index.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'elementary_scripts' );
 
