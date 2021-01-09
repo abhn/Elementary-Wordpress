@@ -10,6 +10,9 @@
 get_header();
 ?>
 
+<div class="_progress-wrapper">
+  <div id="_progress"></div>
+</div>
 
 <header>
 	<h1><?php the_title(); ?></h1>
