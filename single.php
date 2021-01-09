@@ -22,7 +22,7 @@ get_header();
 				if ( $post_tags ) {
 					foreach($post_tags as $tag) {
 				?>
-						<a class="tags" href="#"><?php echo $tag->name; ?></a>
+						<a class="tags" href="/tags#<?php echo $tag->name; ?>"><?php echo $tag->name; ?></a>
 				<?php
 					}
 				}
