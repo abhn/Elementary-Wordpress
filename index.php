@@ -23,6 +23,30 @@ get_header();
 
 <main class="home-main">
 
+
+<section id="art">
+  <details>
+    <summary>
+      <h3 class="home-page-heading">Doodles</h3>
+    </summary>
+    <div class="parent">
+      <?php
+        $pods = pods( 'doodle', array());
+        while($pods->fetch()) {
+      ?>
+        <div class="post-wrapper">
+          <time class="post-date"><?php echo date('m/Y', strtotime($pods->field('date'))); ?></time>
+          <a class="post-link" href="<?php echo $pods->field('permalink'); ?>">
+            <?php echo $pods->field('title'); ?>
+          </a>
+        </div>
+      <?php
+        }
+      ?>
+    </div>
+  </details>
+</section>
+
 <section id="posts">
   <details open>
     <summary>
