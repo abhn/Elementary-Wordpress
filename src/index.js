@@ -1,15 +1,11 @@
-const light = 'Light',
-      dark = 'Dark';
-
 document.addEventListener("DOMContentLoaded", () => {
   init();
 });
 
 const init = () => {
-  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
+  const darkSwitchesArray = document.querySelectorAll('#dark-mode-toggle');
   darkSwitchesArray.forEach(darkSwitch => {
-    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
-    darkSwitch.addEventListener('click', handleNightModeToggle);
+    darkSwitch.addEventListener('change', handleNightModeToggle);
   });
   checkCookie();
 };
@@ -31,10 +27,6 @@ const handleNightModeToggle = () => {
 
 // dark mode toggle
 const toggleDarkMode = () => {
-  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
-  darkSwitchesArray.forEach(darkSwitch => {
-    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
-  });
   document.body.classList.toggle('dark');
 };
 
