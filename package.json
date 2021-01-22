@@ -36,7 +36,7 @@
     "map": false
   },
   "scripts": {
-    "watch": "node-sass sass/style.scss -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w & wp-scripts start",
+    "watch": "node-sass sass/style.scss -wo ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix & wp-scripts start",
     "compile:css": "node-sass sass/style.scss -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",

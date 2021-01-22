@@ -51,6 +51,22 @@ get_header();
   <details open>
     <summary>
       <h3 class="home-page-heading">Essays</h3>
+      <div class="tags-filter-wrapper">
+        <label for="tag-filter">Filter by </label>
+        <select id="tag-filter">
+          <option selected="selected">All tags</option>
+          <?php
+            $tags = get_tags(array(
+              'hide_empty' => true
+            ));
+            foreach ($tags as $tag) {
+          ?>
+            <option value="<?php echo $tag->name; ?>"><?php echo $tag->name; ?></option>
+          <?php
+            }
+          ?>
+        </select>
+      </div>
     </summary>
     <div class="parent">
 
