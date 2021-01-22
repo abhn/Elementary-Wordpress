@@ -27,7 +27,7 @@ get_header();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'template-parts/content', 'search' );
+				get_template_part('template-parts/post-listing-item');
 
 			endwhile;
 

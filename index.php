@@ -65,14 +65,7 @@ get_header();
 			if ($posts->have_posts()) :
 				while ( $posts->have_posts() ) :
 					$posts->the_post();
-		?>
-		        <div class="post-wrapper">
-		          <time class="post-date"><?php the_time('m/Y'); ?></time>
-		          <a class="post-link" href="<?php the_permalink(); ?>">
-		            <?php the_title(); ?>
-		          </a>
-		        </div>
-		<?php
+		      get_template_part('template-parts/post-listing-item');
 				endwhile;
 			endif;
 		?>
