@@ -75,20 +75,22 @@ document.addEventListener("scroll", scrollListener, { passive: true });
 
 // tags filter
 const tagsSelector = document.querySelector('#tag-filter');
-tagsSelector.addEventListener('change', e => {
-  const selectedTag = e.target.value;
-  const allPostsOnIndex = document.querySelectorAll('#posts-container')[0].children;
-  for(post of allPostsOnIndex) {
-    if(selectedTag === 'all-tags') {
-      post.classList.remove('hidden');
-      continue;
+if(tagsSelector) {
+  tagsSelector.addEventListener('change', e => {
+    const selectedTag = e.target.value;
+    const allPostsOnIndex = document.querySelectorAll('#posts-container')[0].children;
+    for(post of allPostsOnIndex) {
+      if(selectedTag === 'all-tags') {
+        post.classList.remove('hidden');
+        continue;
+      }
+      const tags = post.dataset.tags.split(',');
+      if(!tags.includes(selectedTag)) {
+        post.classList.add('hidden');
+      }
+      else {
+        post.classList.remove('hidden');
+      }
     }
-    const tags = post.dataset.tags.split(',');
-    if(!tags.includes(selectedTag)) {
-      post.classList.add('hidden');
-    }
-    else {
-      post.classList.remove('hidden');
-    }
-  }
-})
+  })  
+}
