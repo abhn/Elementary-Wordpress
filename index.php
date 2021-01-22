@@ -31,7 +31,7 @@ get_header();
     </summary>
     <div class="parent">
       <?php
-        $pods = pods( 'doodle', array());
+        $pods = pods('doodle', array('orderby' => 'date DESC'));
         while($pods->fetch()) {
       ?>
         <div class="post-wrapper">
