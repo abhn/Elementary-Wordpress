@@ -51,8 +51,24 @@ get_header();
   <details open>
     <summary>
       <h3 class="home-page-heading">Essays</h3>
+      <div class="tags-filter-wrapper">
+        <label for="tag-filter">Filter by </label>
+        <select id="tag-filter">
+          <option class="tags-option" value="all-tags" selected="selected">All tags</option>
+          <?php
+            $tags = get_tags(array(
+              'hide_empty' => true
+            ));
+            foreach ($tags as $tag) {
+          ?>
+            <option class="tags-option" value="<?php echo $tag->name; ?>"><?php echo $tag->name; ?></option>
+          <?php
+            }
+          ?>
+        </select>
+      </div>
     </summary>
-    <div class="parent">
+    <div class="parent" id="posts-container">
 
 
 		<?php
@@ -65,14 +81,7 @@ get_header();
 			if ($posts->have_posts()) :
 				while ( $posts->have_posts() ) :
 					$posts->the_post();
-		?>
-		        <div class="post-wrapper">
-		          <time class="post-date"><?php the_time('m/Y'); ?></time>
-		          <a class="post-link" href="<?php the_permalink(); ?>">
-		            <?php the_title(); ?>
-		          </a>
-		        </div>
-		<?php
+		      get_template_part('template-parts/post-listing-item');
 				endwhile;
 			endif;
 		?>

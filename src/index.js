@@ -1,15 +1,11 @@
-const light = 'Light',
-      dark = 'Dark';
-
 document.addEventListener("DOMContentLoaded", () => {
   init();
 });
 
 const init = () => {
-  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
+  const darkSwitchesArray = document.querySelectorAll('#dark-mode-toggle');
   darkSwitchesArray.forEach(darkSwitch => {
-    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
-    darkSwitch.addEventListener('click', handleNightModeToggle);
+    darkSwitch.addEventListener('change', handleNightModeToggle);
   });
   checkCookie();
 };
@@ -31,10 +27,6 @@ const handleNightModeToggle = () => {
 
 // dark mode toggle
 const toggleDarkMode = () => {
-  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
-  darkSwitchesArray.forEach(darkSwitch => {
-    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
-  });
   document.body.classList.toggle('dark');
 };
 
@@ -72,3 +64,25 @@ let scrollListener = () => {
   progress && progress.style.setProperty("--scroll", scrollPercent);
 };
 document.addEventListener("scroll", scrollListener, { passive: true });
+
+// tags filter
+const tagsSelector = document.querySelector('#tag-filter');
+if(tagsSelector) {
+  tagsSelector.addEventListener('change', e => {
+    const selectedTag = e.target.value;
+    const allPostsOnIndex = document.querySelectorAll('#posts-container')[0].children;
+    for(post of allPostsOnIndex) {
+      if(selectedTag === 'all-tags') {
+        post.classList.remove('hidden');
+        continue;
+      }
+      const tags = post.dataset.tags.split(',');
+      if(!tags.includes(selectedTag)) {
+        post.classList.add('hidden');
+      }
+      else {
+        post.classList.remove('hidden');
+      }
+    }
+  })  
+}

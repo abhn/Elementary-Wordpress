@@ -19,7 +19,7 @@ get_header();
   <ul>
     <?php 
       $tags = get_tags(array(
-        'hide_empty' => false
+        'hide_empty' => true
       ));
       foreach ($tags as $tag) {
         ?>
