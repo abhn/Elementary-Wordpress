@@ -331,3 +331,23 @@ table {
   float: right;
   padding-top: 0.25rem;
 }
+
+.nav-details-wrapper {
+  & summary::-webkit-details-marker {
+    display:none;
+  }
+  summary {
+    list-style: none;
+  }
+  #nav-details-toggle {
+    cursor: pointer;
+  }
+
+  form {
+    margin: 1.25rem 0;
+
+    label {
+      @extend p;
+    }
+  }
+}
