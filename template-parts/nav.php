@@ -20,6 +20,5 @@
       <a href="/?feed=rss2">RSS</a>,
       <a href="/?feed=atom">Atom</a></p>
 
-    <p>➡️ Subscribe via <a href="/subscribe">email 📧</a></p>
   </details>
 </nav>
