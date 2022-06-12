@@ -19,7 +19,7 @@
   <div>
     Theme: <a href="https://github.com/abhn/Elementary">Elementary</a>
     <br/>
-    <a>Abhishek Nagekar</a> &copy; 2020
+    <a>Abhishek Nagekar</a> &copy; <?php echo date("Y"); ?>
   </div>
 </footer>
 
